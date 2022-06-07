@@ -1,6 +1,6 @@
-const provider = require('../../business/products/products.helper');
+const provider = require('../../business/helper/serviceHelper');
 
 exports.getProducts = async (req, res) => {
-  const result = await provider.getProducts(req);
+  const result = await provider.get(req, AppConfigs.api.products);
   return res.status(result.statusCode).json(result.data);
 };

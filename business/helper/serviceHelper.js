@@ -1,8 +1,8 @@
-const brandsService = require('../../services/brands');
+const service = require('../../services');
 const Response = require('../models/Response');
 const authHelper = require('../helper/authHelper');
 
-exports.getBrands = async (req) => {
+exports.get = async (req, path) => {
   const auth = authHelper.auth(req);
   if(auth){
     return auth;
@@ -10,7 +10,7 @@ exports.getBrands = async (req) => {
   let result = null;
   const response = new Response();
   try {
-    result = await brandsService.getBrands(req);
+    result = await service.get(req, path);
 
     if(result){
       response.data = result;

@@ -1,8 +1,8 @@
 const rp = require('request-promise');
 
-exports.getBrands = (req) => {
+exports.get = (req, path) => {
   const qs = req.query;
-  const uri = `${AppConfigs.api.dumyah.baseUrl}${AppConfigs.api.brand}`;
+  const uri = `${AppConfigs.api.dumyah.baseUrl}${path}`;
   const options = {
     method: 'GET',
     uri,
