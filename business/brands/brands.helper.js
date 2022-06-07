@@ -1,7 +1,12 @@
 const brandsService = require('../../services/brands');
 const Response = require('../models/Response');
+const authHelper = require('../helper/authHelper');
 
 exports.getBrands = async (req) => {
+  const auth = authHelper.auth(req);
+  if(auth){
+    return auth;
+  }
   let result = null;
   const response = new Response();
   try {

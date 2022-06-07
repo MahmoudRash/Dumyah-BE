@@ -1,7 +1,12 @@
 const productsService = require('../../services/products');
 const Response = require('../models/Response');
+const authHelper = require('../helper/authHelper');
 
 exports.getProducts = async (req) => {
+  const auth = authHelper.auth(req);
+  if(auth){
+    return auth;
+  }
   let result = null;
   const response = new Response();
   try {
