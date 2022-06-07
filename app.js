@@ -3,11 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const config = require('./configs');
 var brandsRouter = require('./routes/brands/brands.routes');
 var productsRouter = require('./routes/products/products.routes');
 
-
+global.AppConfigs = config.get();
 var app = express();
 
 app.use(logger('dev'));

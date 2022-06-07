@@ -2,6 +2,8 @@ const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
 
+process.env.NODE_APP = require(`${process.cwd()}/package.json`).name;
+process.env.NODE_ENV = (process.env.NODE_ENV || 'development');
 const configFolder = path.resolve(__dirname, './environment');
 
 /**
