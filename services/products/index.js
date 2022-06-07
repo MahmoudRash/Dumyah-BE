@@ -2,7 +2,7 @@ const rp = require('request-promise');
 
 exports.getProducts = (req) => {
   const qs = req.query;
-  const uri = 'https://staging.dumyah.com/coding-test/products';
+  const uri = `${AppConfigs.api.dumyah.baseUrl}${AppConfigs.api.products}`;
   const options = {
     method: 'GET',
     uri,
